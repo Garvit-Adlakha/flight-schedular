@@ -1,0 +1,62 @@
+INFO:     Will watch for changes in these directories: ['/home/garvit/Projects/flight-schedule/ml-model/api']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [161618] using StatReload
+🚀 Starting Flight Schedule Optimization API Server...
+============================================================
+📂 Working directory: /home/garvit/Projects/flight-schedule/ml-model/api
+🌐 API will be available at: http://localhost:8000
+📚 Interactive docs at: http://localhost:8000/docs
+📋 ReDoc docs at: http://localhost:8000/redoc
+
+🔧 Server Configuration:
+   - Host: 0.0.0.0 (all interfaces)
+   - Port: 8000
+   - Reload: True (development mode)
+   - Log level: info
+
+⚡ Starting server...
+   Press Ctrl+C to stop the server
+============================================================
+INFO:     Started server process [161622]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+✅ Configuration loaded successfully
+   📁 Base directory: /home/garvit/Projects/flight-schedule/ml-model/api/..
+   📊 Raw data file: /home/garvit/Projects/flight-schedule/ml-model/api/../data/429e6e3f-281d-4e4c-b00a-92fb020cb2fcFlight_Data.xlsx
+   🔄 Processed data file: /home/garvit/Projects/flight-schedule/ml-model/api/../data/processed_flight_data.csv
+   🤖 Models directory: /home/garvit/Projects/flight-schedule/ml-model/api/../models
+🚀 Initializing Flight Schedule Optimization API...
+Preparing features for ML models...
+Selected 15 features for modeling
+Models loaded successfully!
+Preparing cascading delay analysis data...
+🦙 Initializing Ollama LLM interface...
+✅ Loaded 785 flight records for LLM context
+🧠 Preparing flight scheduling context for LLM...
+✅ Flight context prepared for LLM
+✅ Ollama model llama3.2:latest is ready
+✅ Ollama LLM interface ready
+✅ API initialized - ready for dynamic data processing!
+INFO:     127.0.0.1:48170 - "GET /api/statistics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48170 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48184 - "GET /api/current-context HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48200 - "GET /api/peak-hours HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48206 - "GET /api/enrichment?limit=200 HTTP/1.1" 500 Internal Server Error
+Preparing cascading delay analysis data...
+INFO:     127.0.0.1:48208 - "GET /api/cascade-network?limit=120 HTTP/1.1" 500 Internal Server Error
+Preparing cascading delay analysis data...
+INFO:     127.0.0.1:48214 - "GET /api/cascade-network?limit=120 HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:48200 - "GET /api/enrichment?limit=200 HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:48200 - "GET /api/enrichment?limit=200 HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:48200 - "OPTIONS /api/optimize-route HTTP/1.1" 200 OK
+
+Finding optimal departure time for route BOM-DEL...
+INFO:     127.0.0.1:48200 - "POST /api/optimize-route HTTP/1.1" 404 Not Found
+
+Finding optimal departure time for route BOM-DEL...
+INFO:     127.0.0.1:48200 - "POST /api/optimize-route HTTP/1.1" 404 Not Found
+
+Finding optimal departure time for route BOM-DEL...
+INFO:     127.0.0.1:48200 - "POST /api/optimize-route HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:48200 - "GET /api/raw-data HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40642 - "GET /api/raw-data HTTP/1.1" 200 OK
