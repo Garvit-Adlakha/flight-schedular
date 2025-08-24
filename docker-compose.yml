@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: flight-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: flight_schedule_optimization
+      POSTGRES_USER: flight_user
+      POSTGRES_PASSWORD: flight_password
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./ml-model/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - flight-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U flight_user -d flight_schedule_optimization"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Optional: Redis for caching (if needed later)
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: flight-redis
+  #   restart: unless-stopped
+  #   ports:
+  #     - "6379:6379"
+  #   networks:
+  #     - flight-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  flight-network:
+    driver: bridge
